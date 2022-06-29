@@ -33,61 +33,23 @@
 
   <main>
     <div class="container pt-5 p-3">
-      <div class="row row-cols-4">
-        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 mb-3">
-          <div class="card text-center">
-            <div class="card-body">
-              <h3 class="card-title text-capitalize">Contact Name 1</h3>
-              <p class="card-text m-2">931760000</p>
-              <a href="#" class="btn btn-secondary mb-2">Edit Contact</a>
-              <a href="#" class="btn btn-danger mb-2">Delete Contact</a>
+      <div class="row">
+        <h2 class="mb-5">Add Contact</h2>
+        <form>
+          <div class="row mb-3">
+            <label for="inputName" class="col-sm-2 col-form-label">Contact Name</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputName" name="inputName" required autocomplete="inputName" autofocus>
             </div>
           </div>
-        </div>
-
-        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 mb-3">
-          <div class="card text-center">
-            <div class="card-body">
-              <h3 class="card-title text-capitalize">Contact Name 2</h3>
-              <p class="card-text m-2">931760000</p>
-              <a href="#" class="btn btn-secondary mb-2">Edit Contact</a>
-              <a href="#" class="btn btn-danger mb-2">Delete Contact</a>
+          <div class="row mb-3">
+            <label for="inputTelf" class="col-sm-2 col-form-label">Phone Number</label>
+            <div class="col-sm-10">
+              <input type=" text" class="form-control" id="inputTelf" name="inputTelf" required autocomplete="inputTelf" autofocus>
             </div>
           </div>
-        </div>
-
-        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 mb-3">
-          <div class="card text-center">
-            <div class="card-body">
-              <h3 class="card-title text-capitalize">Contact Name 3</h3>
-              <p class="card-text m-2">931760000</p>
-              <a href="#" class="btn btn-secondary mb-2">Edit Contact</a>
-              <a href="#" class="btn btn-danger mb-2">Delete Contact</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 mb-3">
-          <div class="card text-center">
-            <div class="card-body">
-              <h3 class="card-title text-capitalize">Contact Name 4</h3>
-              <p class="card-text m-2">931760000</p>
-              <a href="#" class="btn btn-secondary mb-2">Edit Contact</a>
-              <a href="#" class="btn btn-danger mb-2">Delete Contact</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 mb-3">
-          <div class="card text-center">
-            <div class="card-body">
-              <h3 class="card-title text-capitalize">Contact Name 5</h3>
-              <p class="card-text m-2">931760000</p>
-              <a href="#" class="btn btn-secondary mb-2">Edit Contact</a>
-              <a href="#" class="btn btn-danger mb-2">Delete Contact</a>
-            </div>
-          </div>
-        </div>
+          <button type="submit" class="btn btn-primary">Add contact</button>
+        </form>
       </div>
     </div>
   </main>
