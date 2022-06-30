@@ -1,15 +1,25 @@
 <?php
-  require "database.php";
+require "database.php";
 
-  if($_SERVER["REQUEST_METHOD"] == "POST"){
+$error = null;
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($_POST["name"]) || empty($_POST["phone_number"])) {
+    $error = "Please, fill all the fields.";
+  } else if (strlen($_POST["phone_number"]) < 9) {
+    $error = "Phone number must be at least 9 characters long";
+  } else {
     $name = $_POST["name"];
     $phoneNumber = $_POST["phone_number"];
 
-    $statement = $connection -> prepare("INSERT INTO contacts (name, phone_number) VALUES('$name', '$phoneNumber');");
-    $statement -> execute();
+    $statement = $connection->prepare("INSERT INTO contacts (name, phone_number) VALUES(:name, :phone_number);");
+    $statement -> bindParam(":name", $_POST["name"]);
+    $statement -> bindParam(":phone_number", $_POST["phone_number"]);
+
+    $statement->execute();
 
     header("Location: index.php");
   }
+}
 ?>
 
 
@@ -49,6 +59,13 @@
   <main>
     <div class="container pt-5 p-3">
       <div class="row">
+        <?php if ($error) : ?>
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <?= $error ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        <?php endif ?>
+
         <h2 class="mb-5">Add Contact</h2>
         <form method="POST" action="add.php">
           <div class="row mb-3">
