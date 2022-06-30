@@ -1,0 +1,6 @@
+body.bck-img{
+  background: url("../img/wallpaper.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

@@ -17,4 +17,4 @@
   $statement->bindParam(":id", $id);
   $statement->execute();
 
-  header("Location: index.php");
+  header("Location: home.php");

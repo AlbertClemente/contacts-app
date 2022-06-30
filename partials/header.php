@@ -6,14 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
   <title>Contacts App</title>
 </head>
 
-<body class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100 <?php if ($_SERVER["REQUEST_URI"] == "/contacts-app/index.php" || $_SERVER["REQUEST_URI"] == "/contacts-app/") : echo "bck-img";
+                                            endif ?>">
   <header>
     <?php require "navbar.php" ?>
   </header>
 
   <main>
 
-  <!-- Content here -->
+    <!-- Content here -->
