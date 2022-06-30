@@ -23,8 +23,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $statement->bindParam(":name", $name);
       $statement->bindParam(":email", $email);
       $statement->bindParam(":password", password_hash($password, PASSWORD_BCRYPT));
-
       $statement->execute();
+
+      $statement = $connection->prepare("SELECT * FROM users WHERE email = :email LIMIT 1;");
+      $statement->bindParam(":email", $_POST["email"]);
+      $statement->execute();
+
+      $user = $statement->fetch(PDO::FETCH_ASSOC);
+
+      session_start();
+
+      unset($user["password"]); //quitamos el password de la sesión.
+
+      $_SESSION["user"] = $user;
 
       header("Location: home.php");
     }

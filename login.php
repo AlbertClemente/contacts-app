@@ -20,6 +20,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       if (!password_verify($_POST["password"], $user["password"])) {
         $error = 'Invalid password.';
       } else {
+        session_start();
+
+        unset($user["password"]); //quitamos el password de la sesión.
+
+        $_SESSION["user"] = $user;
+
         header("Location: home.php");
       }
     }
