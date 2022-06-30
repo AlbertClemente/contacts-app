@@ -6,7 +6,7 @@
       <div class="card text-center">
         <div class="card-body">
           <p class="card-text m-2 mb-4">Nothing to show... :(</p>
-          <a href="add.php" class="btn btn-primary mb-2">Please, sign up :)</a>
+          <a href="signup.php" class="btn btn-primary mb-2">Please, sign up :)</a>
         </div>
       </div>
     </div>
