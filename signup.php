@@ -20,9 +20,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $password = $_POST["password"];
 
       $statement = $connection->prepare("INSERT INTO users (name, email, password) VALUES(:name, :email, :password);");
-      $statement->bindParam(":name", $_POST["name"]);
-      $statement->bindParam(":email", $_POST["email"]);
-      $statement->bindParam(":password", $_POST["password"]);
+      $statement->bindParam(":name", $name);
+      $statement->bindParam(":email", $email);
+      $statement->bindParam(":password", password_hash($password, PASSWORD_BCRYPT));
 
       $statement->execute();
 
