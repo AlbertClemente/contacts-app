@@ -1,7 +1,7 @@
 <?php
-  require "database.php";
+require "database.php";
 
-  $contacts = $connection -> query("SELECT * FROM contacts");
+$contacts = $connection->query("SELECT * FROM contacts");
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +40,7 @@
   <main>
     <div class="container pt-5 p-3">
       <div class="row row-cols-4">
-        <?php if ($contacts -> rowCount() == 0) : ?>
+        <?php if ($contacts->rowCount() == 0) : ?>
           <div class="col-12 mb-5">
             <div class="card text-center">
               <div class="card-body">
@@ -57,7 +57,7 @@
               <div class="card-body">
                 <h3 class="card-title text-capitalize"><?= $contact["name"] ?></h3>
                 <p class="card-text m-2"><?= $contact["phone_number"] ?></p>
-                <a href="#" class="btn btn-secondary mb-2">Edit Contact</a>
+                <a href="edit.php?id=<?= $contact["id"] ?>" class="btn btn-secondary mb-2">Edit Contact</a>
                 <a href="delete.php?id=<?= $contact["id"] ?>" class="btn btn-danger mb-2">Delete Contact</a>
               </div>
             </div>
