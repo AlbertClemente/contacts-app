@@ -1,3 +1,26 @@
+<?php
+  if($_SERVER["REQUEST_METHOD"] == "POST"){
+    //data persistance
+    $contact = [
+      "name" => $_POST["name"],
+      "phone_number" => $_POST["phone_number"]
+    ];
+
+    if (file_exists("contacts.json")) {
+      $contacts = json_decode(file_get_contents("contacts.json"), true);
+    } else {
+      $contacts = [];
+    }
+
+    $contacts[] = $contact;
+
+    file_put_contents("contacts.json", json_encode($contacts));
+
+    header("Location: index.php");
+  }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,17 +58,17 @@
     <div class="container pt-5 p-3">
       <div class="row">
         <h2 class="mb-5">Add Contact</h2>
-        <form>
+        <form method="POST" action="add.php">
           <div class="row mb-3">
-            <label for="inputName" class="col-sm-2 col-form-label">Contact Name</label>
+            <label for="name" class="col-sm-2 col-form-label">Contact Name</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="inputName" name="inputName" required autocomplete="inputName" autofocus>
+              <input type="text" class="form-control" id="name" name="name" required autocomplete="name" autofocus>
             </div>
           </div>
           <div class="row mb-3">
-            <label for="inputTelf" class="col-sm-2 col-form-label">Phone Number</label>
+            <label for="phone_number" class="col-sm-2 col-form-label">Phone Number</label>
             <div class="col-sm-10">
-              <input type=" text" class="form-control" id="inputTelf" name="inputTelf" required autocomplete="inputTelf" autofocus>
+              <input type=" text" class="form-control" id="phone_number" name="phone_number" required autocomplete="phone_number" autofocus>
             </div>
           </div>
           <button type="submit" class="btn btn-primary">Add contact</button>
