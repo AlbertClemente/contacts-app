@@ -16,6 +16,12 @@ if ($statement->rowCount() == 0) {
 
 $contact = $statement->fetch(PDO::FETCH_ASSOC);
 
+if ($contact["userid"] !== $_SESSION["user"]["id"]) {
+  http_response_code(403);
+  echo ("<h1>UNAUTHORIZED :/");
+  return;
+} 
+
 $error = null;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
