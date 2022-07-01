@@ -40,7 +40,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $statement->execute();
 
+    $_SESSION["alert"] = ["message" => "Contact {$_POST['name']} updated successfully."];
+
     header("Location: home.php");
+    return;
   }
 }
 ?>
