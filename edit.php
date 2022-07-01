@@ -1,10 +1,6 @@
 <?php
 require "database.php";
-
-if (!isset($_SESSION["user"])) {
-  header("Location: login.php");
-  return;
-}
+require "session.php";
 
 $id = $_GET["id"];
 

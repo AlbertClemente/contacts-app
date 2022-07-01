@@ -1,12 +1,9 @@
 <?php
 require "database.php";
-
-if (!isset($_SESSION["user"])) {
-  header("Location: login.php");
-  return;
-}
+require "session.php";
 
 $error = null;
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["name"]) || empty($_POST["phone_number"])) {
     $error = "Please, fill all the fields.";

@@ -1,15 +1,8 @@
 <?php
 require "database.php";
-
-session_start();
-
-if (!isset($_SESSION["user"])) {
-  header("Location: login.php");
-  return;
-}
+require "session.php";
 
 $contacts = $connection->query("SELECT * FROM contacts");
-
 ?>
 
 <?php require "partials/header.php"; ?>
