@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST["name"];
     $phoneNumber = $_POST["phone_number"];
 
-    $statement = $connection->prepare("INSERT INTO contacts (name, phone_number) VALUES(:name, :phone_number);");
+    $statement = $connection->prepare("INSERT INTO contacts (userid, name, phone_number) VALUES({$_SESSION['user']['id']},:name, :phone_number);");
     $statement->bindParam(":name", $_POST["name"]);
     $statement->bindParam(":phone_number", $_POST["phone_number"]);
 

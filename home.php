@@ -2,7 +2,7 @@
 require "database.php";
 require "session.php";
 
-$contacts = $connection->query("SELECT * FROM contacts");
+$contacts = $connection->query("SELECT * FROM contacts WHERE userid = {$_SESSION['user']['id']}");
 ?>
 
 <?php require "partials/header.php"; ?>
