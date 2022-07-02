@@ -10,8 +10,7 @@
   <title>Contacts App</title>
 </head>
 
-<body class="d-flex flex-column min-vh-100 <?php if ($_SERVER["REQUEST_URI"] == "/contacts-app/index.php" || $_SERVER["REQUEST_URI"] == "/contacts-app/") : echo "bck-img";
-                                            endif ?>">
+<body class="d-flex flex-column min-vh-100 <?php if ($_SERVER["REQUEST_URI"] == "/contacts-app/index.php" || $_SERVER["REQUEST_URI"] == "/contacts-app/") : echo "bck-img"; endif ?>">
   <header>
     <?php require "navbar.php" ?>
   </header>
@@ -21,10 +20,7 @@
     <?php if (isset($_SESSION["alert"])) : ?>
       <div class="container pt-5 p-3">
         <div class="row">
-          <div class="alert alert-success d-flex align-items-center alert-dismissible fade show" role="alert">
-            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
-              <use xlink:href="#check-circle-fill" />
-            </svg>
+          <div class="alert <?= $_SESSION["alert"]["type"] ?> d-flex align-items-center alert-dismissible fade show" role="alert">
             <div>
               <?= $_SESSION["alert"]["message"] ?>
               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

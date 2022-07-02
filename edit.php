@@ -10,7 +10,8 @@ $statement->execute();
 
 if ($statement->rowCount() == 0) {
   http_response_code(404);
-  echo ("<h1>HTTP 404 NOT FOUND :(");
+  $_SESSION["alert"] = ["type" => "alert-warning", "message" => "Error: contact not found."];
+  header("Location: home.php");
   return;
 }
 
@@ -18,7 +19,8 @@ $contact = $statement->fetch(PDO::FETCH_ASSOC);
 
 if ($contact["userid"] !== $_SESSION["user"]["id"]) {
   http_response_code(403);
-  echo ("<h1>UNAUTHORIZED :/");
+  $_SESSION["alert"] = ["type" => "alert-danger", "message" => "Error: deleting the contact is not allowed for your account."];
+  header("Location: home.php");
   return;
 } 
 
@@ -40,8 +42,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $statement->execute();
 
-    $_SESSION["alert"] = ["message" => "Contact {$_POST['name']} updated successfully."];
-
+    http_response_code(200);
+    $_SESSION["alert"] = ["type" => "alert-success", "message" => "Contact {$_POST['name']} updated successfully."];
     header("Location: home.php");
     return;
   }

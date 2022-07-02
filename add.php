@@ -19,8 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $statement->execute();
 
-    $_SESSION["alert"] = ["message" => "Contact {$_POST['name']} added."];
-
+    http_response_code(200);
+    $_SESSION["alert"] = ["type" => "alert-success", "message" => "Contact {$_POST['name']} added."];
     header("Location: home.php");
     return;
   }

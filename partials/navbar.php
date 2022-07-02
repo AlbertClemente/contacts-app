@@ -25,9 +25,7 @@
             <a class="nav-link" href="signup.php">Create an account</a>
           </li>
         <?php endif ?>
-      </ul>
-      <?php if (isset($_SESSION["user"])) : ?>
-        <ul class="navbar-nav d-flex">
+        <?php if (isset($_SESSION["user"])) : ?>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <?= $_SESSION["user"]["email"] ?>
@@ -36,8 +34,8 @@
               <li><a class="dropdown-item" href="logout.php">Log out</a></li>
             </ul>
           </li>
-        </ul>
-      <?php endif ?>
+        <?php endif ?>
+      </ul>
     </div>
   </div>
 </nav>
